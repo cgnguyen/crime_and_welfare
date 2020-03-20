@@ -1,31 +1,86 @@
 ---
-title: "R Notebook"
+title: "Crime and Punishment (and Welfare States)"
 output:
   html_document:
-    df_print: paged
     
+    df_print: paged
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+editor_options: 
+  chunk_output_type: console
 ---
+# Introduction
+
+This analysis tries to answer two questions: Does economic insecurity lead to higher punitive attitudes and does the welfare state reduce that relationship? This is also an introduction to Rmarkdown , Rstudio and using the ESS
+
+# Setup
+## Getting Started
+First we need to get the data from the [European Social Survey](http://www.europeansocialsurvey.org/) using the ESS package. I am using the "needs" package to make installing and loading packages easier
 
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
-
-
-
-```{r}
-plot(cars)
+```{setup ess package}
+library(needs)
+needs(essurvey)
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+While we are at it, let us also load a few other packeges that we will need for the analysis.
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+```{setup other packages}
+  needs(tidyverse) #Tidyverse helps us with many helper functions 
+  needs(ggplot2)  #for nice graphics
+  needs(car)     #I still clean my data using car
+```` 
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+## Downloading the Data
+
+The data on punitivness can be found in ESS waves 4 (2008) and 5 (2010). We can download the data directly from within R, using the "essurvey" package. You can download more than one wave at once, but to facilitate data cleaning we download each wave seperately. You will need to register your email with the ESS first. 
+
+```{setup get data, cache=T}
+    set_email("cgnguyen@gmail.com") #Add your own email here
+    DATA_4<-import_rounds(4)
+    DATA_5<-import_rounds(5)
+```` 
+
+## Cleaning the Data
+
+First we need to clean our data. This means removing missing values, making sure that the coding is the same across each waves, and sometimes inversing scales.
+
+Note that this data is already well prepared, so we can rely on one simple command to remove missing variables. Also going to save a vector of variable names that makes merging it easier later. 
+
+
+```{setup missing values}
+    DATA_4<-recode_missings(DATA_4)
+    DATA_5<-recode_missings(DATA_5)
+    
+    length_vec_4<-length(DATA_4)
+    length_vec_5<-length(DATA_5)
+
+```
+
+### Dependent Variables: Punitivness###
+For now we look at one variable that looks at how much punishment people "deserve". Specifically, the question asks "People who break the law deserve much harsher sentences". This  question is coded on a scale from 1(agree strongly) to 5 (disagree strongly) - we will reverse this scale so that higher values indicate more punitativness and have it range from 0 to 4. 
+
+Note that the variable is named slightly differently in wave 4 and 5
+
+```{setup dep vars}
+  DATA_4$punish<-(DATA_4$hrshsnt-5)*-1
+  DATA_5$punish<-(DATA_5$hrshsnta-5)*-1
+```` 
+
+
+
+## Merging the Dataset
+
+```{setup merge}
+
+DATA_4_merge<-
+
+
+
+````
+
+
 

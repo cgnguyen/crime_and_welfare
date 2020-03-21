@@ -138,7 +138,7 @@ So on average, most people want to have higher punishments for crime, with the m
 To do this, we use dplyr to quickly calculate mean values per group + standard errors around them. We use the plotrix package for a quick helper function for the calculation of standard errors and ggplot2 to graph these. 
 
 
-```{r descriptive group differences, warning=F, echo=F}
+```{r descriptive group differences, warning=F, echo=F, mesasge=F}
   #Generate Mean variables using dplyr
     data.temp<-
       DATA %>%
@@ -182,11 +182,9 @@ To do this, we use dplyr to quickly calculate mean values per group + standard e
       
    # Turn it into a plotly obejct and enable highligting
       ggplotly(figure1 , tooltip = "y") %>% 
-      highlight(on = "plotly_click", persistent = T , off="plotly_doubleclick", 
+                highlight(on = "plotly_click", persistent = F , off="plotly_doubleclick", 
                 opacityDim=0.2, defaultValues= c("Unemployed, looking for job", "Paid work"))
-
 ```
-
 
 
 

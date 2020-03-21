@@ -18,31 +18,36 @@ This analysis tries to answer two questions: Does economic insecurity lead to hi
 
 # Setup
 ## Getting Started
-First we need to get the data from the [European Social Survey](http://www.europeansocialsurvey.org/) using the ESS package. I am using the "needs" package to make installing and loading packages easier
+First we need to get the data from the [European Social Survey](http://www.europeansocialsurvey.org/) using the ESS package. I am using the "needs" package to make installing and loading packages easier.
 
 
-```{setup ess package}
+```{r setup ess package}
 library(needs)
 needs(essurvey)
 ```
 
 While we are at it, let us also load a few other packeges that we will need for the analysis.
 
-```{setup other packages}
-  needs(tidyverse) #Tidyverse helps us with many helper functions 
-  needs(ggplot2)  #for nice graphics
-  needs(car)     #I still clean my data using car
-```` 
+```{r setup other packages}
+  needs(tidyverse)  #Tidyverse helps us with many helper functions 
+  needs(ggplot2)    #for nice graphics
+  needs(car)        #I still clean my data using car
+  needs(plotrix)    #For standard error function
+  needs(ggthemes)   #To make ggplot look nicer
+  needs(plotly)     #To make ggplot animated
+  needs(crosstalk)  # To enable highlighting
+  
+```
 
 ## Downloading the Data
 
 The data on punitivness can be found in ESS waves 4 (2008) and 5 (2010). We can download the data directly from within R, using the "essurvey" package. You can download more than one wave at once, but to facilitate data cleaning we download each wave seperately. You will need to register your email with the ESS first. 
 
-```{setup get data, cache=T}
+```{r setup get data, cache=T, message=F, warning=F, echo=FALSE, results='hide'}
     set_email("cgnguyen@gmail.com") #Add your own email here
     DATA_4<-import_rounds(4)
     DATA_5<-import_rounds(5)
-```` 
+```
 
 ## Cleaning the Data
 
@@ -51,13 +56,12 @@ First we need to clean our data. This means removing missing values, making sure
 Note that this data is already well prepared, so we can rely on one simple command to remove missing variables. Also going to save a vector of variable names that makes merging it easier later. 
 
 
-```{setup missing values}
+```{r setup missing values}
     DATA_4<-recode_missings(DATA_4)
     DATA_5<-recode_missings(DATA_5)
     
     length_vec_4<-length(DATA_4)
     length_vec_5<-length(DATA_5)
-
 ```
 
 ### Dependent Variables: Punitivness###
@@ -65,22 +69,128 @@ For now we look at one variable that looks at how much punishment people "deserv
 
 Note that the variable is named slightly differently in wave 4 and 5
 
-```{setup dep vars}
+```{r setup dep vars}
   DATA_4$punish<-(DATA_4$hrshsnt-5)*-1
   DATA_5$punish<-(DATA_5$hrshsnta-5)*-1
-```` 
+``` 
+
+### Clean individual level independent variables 
+
+We control for sociodemographic variables such as gender, age, main activity, level of education, and household income. We need to think about what kind of measure of economic insecurity we care about. We could go with labor market status, income, or maybe even labor market risk using ISCO rates. 
+
+We make use of the fact that the data is already labeled - this means we can use the "as_factor" command to turn the numerical variables into factor variables that R understands. 
 
 
-
+```{r setup clean indep. variables}
+  DATA_4$gender<-as_factor(DATA_4$gndr)
+  DATA_4$age<-DATA_4$agea
+  DATA_4$activity<-as_factor(DATA_4$mnactic)
+  DATA_4$education<-as_factor(DATA_4$eisced)
+  DATA_4$income<-as_factor(DATA_4$hinctnta)
+  
+  DATA_4$cntry<-as_factor(DATA_4$cntry)
+  
+  DATA_5$gender<-as_factor(DATA_5$gndr)
+  DATA_5$age<-DATA_5$agea
+  DATA_5$activity<-as_factor(DATA_5$mnactic)
+  DATA_5$education<-as_factor(DATA_5$eisced)
+  DATA_5$income<-as_factor(DATA_5$hinctnta)
+  DATA_5$cntry<-as_factor(DATA_5$cntry)
+```
 ## Merging the Dataset
 
-```{setup merge}
+We select the variables from the dataset that we need and then merge them into one new dataset for analysis. We need to do this because each survey has different questions, so we cannot simply combine the two. We also "drop" the empty levels of factor variables
 
-DATA_4_merge<-
+```{r setup merge}
+
+select.vec<-c("punish","gender","age","activity","education","income","cntry")
+
+DATA_4_merge<-DATA_4[,select.vec]
+DATA_5_merge<-DATA_5[,select.vec]
+
+DATA<-rbind(DATA_4_merge,DATA_5_merge)
+DATA<-droplevels(DATA)
+```
+
+I am going to be using a lot of graphs in this. To make sure I don't have to define every graph theme anew, I am going to create a new theme that sets some baselines for the figures we will produce. We will start with the basic minimalist theme, rotate the x-axis by 90 degrees and change the background to white.
+
+```{r setup theme set}
+  theme_awesome <- theme_bw() 
+  
+  theme_awesome<-theme_awesome +
+      theme(legend.position = "none")
+  
+  theme_set(theme_awesome)
+```
+
+# Descriptive Statistics
+
+Before we start our "proper" analysis, it is always a good idea to look at the data first and see what it looks like. We should really be adjusting for survey and design weights, but are going to ignore this for now to make the code easier to read. 
+
+Let us begin by looking at the distribution of our dependent variable. 
+
+```{r summary stats}
+summary(DATA$punish)
+```
+
+So on average, most people want to have higher punishments for crime, with the median answer being "agree". These averages are interesting, but let's see if these differ by a few key few factors. In line with our theory, let us look at different forms of economic risk - unemployment and household income. 
+
+To do this, we use dplyr to quickly calculate mean values per group + standard errors around them. We use the plotrix package for a quick helper function for the calculation of standard errors and ggplot2 to graph these. 
+
+
+```{r descriptive group differences, warning=F, echo=F}
+  #Generate Mean variables using dplyr
+    data.temp<-
+      DATA %>%
+        group_by(activity)%>%
+        summarise(meanpunish=mean(punish, na.rm=T), 
+              se = std.error(punish, na.rm=T),
+              n = n())%>%
+        dplyr::filter(!is.na(activity))
+
+  #Build a color scheme for the graph 
+    data.temp$colorscheme<-data.temp$activity
+    ## Recoding data.temp$color
+    data.temp$colorscheme <- fct_recode(data.temp$colorscheme,
+               "darkblue" = "Paid work",
+               "darkgreen" = "Education",
+               "darkred" = "Unemployed, looking for job",
+               "red" = "Unemployed, not looking for job",
+               "darkorange3" = "Permanently sick or disabled",
+               "lightgreen" = "Retired",
+               "gray50" = "Community or military service",
+               "gray65" = "Housework, looking after children, others",
+               "gray80" = "Other")
+
+    
+    
+    
+  #Setup data for plotly highlights
+    data.temp <- SharedData$new(data.temp, ~activity)
+
+  #Generate Figure in ggplot2
+      figure1<-ggplot(data.temp)+
+        aes(x=reorder(activity,meanpunish), y=meanpunish, 
+            ymin=meanpunish-1.96*se, ymax=meanpunish+1.96*se, 
+            fill=activity,text=activity)+
+        geom_col(width=0.8,position = position_dodge(width=0.5))+
+        geom_errorbar(width=0.1)+
+        xlab("Main Activity")+ylab("Mean Punitivness")+
+        scale_fill_manual(values=c("darkblue","darkgreen", "darkred","red","darkorange3","lightgreen","gray50","gray65","gray80"))+
+        scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+
+        coord_flip()
+      
+   # Turn it into a plotly obejct and enable highligting
+      ggplotly(figure1 , tooltip = "y") %>% 
+      highlight(on = "plotly_click", persistent = T , off="plotly_doubleclick", 
+                opacityDim=0.2, defaultValues= c("Unemployed, looking for job", "Paid work"))
+
+```
 
 
 
-````
+
+
 
 
 

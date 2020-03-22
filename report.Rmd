@@ -330,7 +330,6 @@ This might be better with a map
      ggplotly(figure5,tooltip = "fill", height = 700, width= 700) %>% 
        layout(xaxis = list(automargin=TRUE, showgrid = F,  showticklabels=F , ticks=""), 
               yaxis = list(automargin=TRUE, showgrid = F,  showticklabels=F , ticks="")) %>%
-       highlight(on = "plotly_hover", off="plotly_deselect", persistent = F,opacityDim=0.7)  %>%
       config(displayModeBar = F) 
 
 ```

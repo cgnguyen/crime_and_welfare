@@ -43,7 +43,7 @@ While we are at it, let us also load a few other packeges that we will need for 
 
 The data on punitivness can be found in ESS waves 4 (2008) and 5 (2010). We can download the data directly from within R, using the "essurvey" package. You can download more than one wave at once, but to facilitate data cleaning we download each wave seperately. You will need to register your email with the ESS first. 
 
-```{r setup get data, cache=T, message=F, warning=F, echo=FALSE, results='hide'}
+```{r setup get data, cache=T, message=F, warning=F, echo=T, results='hide'}
     set_email("cgnguyen@gmail.com") #Add your own email here
     DATA_4<-import_rounds(4)
     DATA_5<-import_rounds(5)
@@ -125,6 +125,8 @@ I am going to be using a lot of graphs in this. To make sure I don't have to def
 
 # Descriptive Statistics
 
+### Very Basic results
+
 Before we start our "proper" analysis, it is always a good idea to look at the data first and see what it looks like. We should really be adjusting for survey and design weights, but are going to ignore this for now to make the code easier to read. 
 
 Let us begin by looking at the distribution of our dependent variable. 
@@ -134,6 +136,8 @@ summary(DATA$punish)
 ```
 
 So on average, most people want to have higher punishments for crime, with the median answer being "agree". These averages are interesting, but let's see if these differ by a few key few factors. In line with our theory, let us look at different forms of economic risk - unemployment and household income. 
+
+### By Main Activity
 
 To do this, we use dplyr to quickly calculate mean values per group + standard errors around them. We use the plotrix package for a quick helper function for the calculation of standard errors and ggplot2 to graph these. 
 
@@ -148,23 +152,6 @@ To do this, we use dplyr to quickly calculate mean values per group + standard e
               n = n())%>%
         dplyr::filter(!is.na(activity))
 
-  #Build a color scheme for the graph 
-    data.temp$colorscheme<-data.temp$activity
-    ## Recoding data.temp$color
-    data.temp$colorscheme <- fct_recode(data.temp$colorscheme,
-               "darkblue" = "Paid work",
-               "darkgreen" = "Education",
-               "darkred" = "Unemployed, looking for job",
-               "red" = "Unemployed, not looking for job",
-               "darkorange3" = "Permanently sick or disabled",
-               "lightgreen" = "Retired",
-               "gray50" = "Community or military service",
-               "gray65" = "Housework, looking after children, others",
-               "gray80" = "Other")
-
-    
-    
-    
   #Setup data for plotly highlights
     data.temp <- SharedData$new(data.temp, ~activity)
 
@@ -186,9 +173,167 @@ To do this, we use dplyr to quickly calculate mean values per group + standard e
                 opacityDim=0.2, defaultValues= c("Unemployed, looking for job", "Paid work"))
 ```
 
+There is a clear and signfiicant difference between people who are unemployed and people who are in paid work. However, there are other groups that score even higher on their relative punitive score. Retired people are the most punitive, while people in education are the lowest. This suggests that age may be a confounder here. Those who are permanently sick or disabled similarly score much higher, as do people who are looking after children. 
 
 
+### By Income Group
 
+```{r descriptive income group differences, warning=F, echo=F, mesasge=F}
+  #Generate Mean variables using dplyr
+    data.temp<-
+      DATA %>%
+        group_by(income)%>%
+        summarise(meanpunish=mean(punish, na.rm=T), 
+              se = std.error(punish, na.rm=T),
+              n = n()) %>%
+        filter(!is.na(income))
+
+  #Setup data for plotly highlights
+    data.temp <- SharedData$new(data.temp, ~income)
+
+  #Generate Figure in ggplot2
+      figure2<-ggplot(data.temp)+
+        aes(x=income, y=meanpunish, 
+            ymin=meanpunish-1.96*se, ymax=meanpunish+1.96*se, 
+            fill=income,text=income)+
+        geom_col(width=0.8,position = position_dodge(width=0.5))+
+        geom_errorbar(width=0.1)+
+        xlab("Income Group")+ylab("Mean Punitivness")+
+        scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+
+        scale_fill_brewer(palette = "RdYlBu")+
+        coord_flip()
+      
+   # Turn it into a plotly obejct and enable highligting
+      ggplotly(figure2 , tooltip = "y") %>% 
+                highlight(on = "plotly_click", persistent = F , off="plotly_doubleclick", 
+                opacityDim=0.2, defaultValues = c("F - 5th decile"))
+```
+
+
+### By Education Group
+
+```{r descriptive education group differences, warning=F, echo=F, mesasge=F}
+  #Generate Mean variables using dplyr
+    data.temp<-
+      DATA %>%
+        group_by(education)%>%
+        summarise(meanpunish=mean(punish, na.rm=T), 
+              se = std.error(punish, na.rm=T),
+              n = n()) %>%
+        filter(!is.na(education))
+
+  #Setup data for plotly highlights
+    data.temp <- SharedData$new(data.temp, ~education)
+
+  #Generate Figure in ggplot2
+      figure3<-ggplot(data.temp)+
+        aes(x=education, y=meanpunish, 
+            ymin=meanpunish-1.96*se, ymax=meanpunish+1.96*se, 
+            fill=education,text=education)+
+        geom_col(width=0.8,position = position_dodge(width=0.5))+
+        geom_errorbar(width=0.1)+
+        xlab("Education Group")+ylab("Mean Punitivness")+
+        scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+
+        scale_fill_brewer(palette = "RdYlBu")+
+        coord_flip()
+      
+   # Turn it into a plotly obejct and enable highligting
+      ggplotly(figure3 , tooltip = "y") %>% 
+                highlight(on = "plotly_click", persistent = F , off="plotly_doubleclick", 
+                opacityDim=0.2, defaultValues = c("ES-ISCED IIIa, upper tier upper secondary"))
+```
+
+### By Country
+
+
+```{r descriptive cntry group differences, warning=F, echo=F, mesasge=F}
+  #Generate Mean variables using dplyr
+    data.temp<-
+      DATA %>%
+        group_by(cntry)%>%
+        summarise(meanpunish=mean(punish, na.rm=T), 
+              se = std.error(punish, na.rm=T),
+              n = n()) %>%
+        filter(!is.na(cntry))
+
+  #Setup data for plotly highlights
+    data.temp <- SharedData$new(data.temp, ~cntry)
+
+  #Generate Figure in ggplot2
+      figure4<-ggplot(data.temp)+
+        aes(x=cntry, y=meanpunish, 
+            ymin=meanpunish-1.96*se, ymax=meanpunish+1.96*se, 
+            fill=cntry,text=cntry)+
+        geom_col(width=0.8,position = position_dodge(width=0.5))+
+        geom_errorbar(width=0.1)+
+        xlab("cntry Group")+ylab("Mean Punitivness")+
+        scale_y_continuous(expand = expand_scale(mult = c(0, .1)))+
+        coord_flip()
+      
+   # Turn it into a plotly obejct and enable highligting
+      ggplotly(figure4, tooltip = "y") %>% 
+                highlight(on = "plotly_click", persistent = F , off="plotly_doubleclick", 
+                opacityDim=0.2)
+```
+
+This might be better with a map
+
+
+```{r Make a map, warning=F, mesasge=F, echo=F, include=F}
+####Average punitivness by country####
+      data.temp<-
+        DATA %>%
+        group_by(cntry)%>%
+        summarise(meanpunish=mean(punish, na.rm=T)) %>%
+        filter(!is.na(cntry))
+
+
+    ##Load additional packages for maps
+    needs(maps)
+    needs(viridis)    
+    
+    #Get Map data
+    world_map <- map_data("world")
+    
+    #Limit to European/ESS countries through zoom later
+
+    eu_map <- map_data("world")
+    
+    #Read in the country code conversion
+    countrycodes<-read.csv("countrycodes.csv")
+    names(countrycodes)<-c("region","cntry")
+    
+    #Merge with data frame for easier integration into map
+    data.temp<-inner_join(data.temp,countrycodes)
+    
+    #Merge data into map
+    eu_map_punish <- right_join(data.temp, eu_map, by = "region")
+    
+    eu_map_punish <- SharedData$new(eu_map_punish, ~cntry)
+
+    
+    
+    figure5<-ggplot(eu_map_punish, aes(long, lat, group = group))+
+      geom_polygon(aes(fill = meanpunish ), color = "white")+
+      theme(legend.position = "none")+
+      scale_fill_continuous(high = "#132B43", low = "#56B1F7") +
+      theme_bw() +
+      xlab("")+ylab("")+
+      coord_fixed(xlim = c(-10, 30),  ylim = c(36, 72), ratio = 1.3)
+    
+
+      
+```
+
+
+```{r map plotly,  warning=F, mesasge=F, echo=F}
+     ggplotly(figure5,tooltip = "fill", height = 700, width= 700) %>% 
+       layout(xaxis = list(automargin=TRUE, showgrid = F,  showticklabels=F , ticks=""), 
+              yaxis = list(automargin=TRUE, showgrid = F,  showticklabels=F , ticks="")) %>%
+       highlight(on = "plotly_hover", off="plotly_deselect", persistent = F,opacityDim=0.7)  %>%
+      config(displayModeBar = F) 
+
+```
 
 
 

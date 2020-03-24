@@ -391,9 +391,11 @@ At first glance, there doesn't seem to be much effect of low income/ unemploymen
 But the theory has been, that this effect should differ by country and welfare state. For now, we don't look at any country level data and just let the effect of unemployment vary by country. Difficult to parse long table - need to clean this up. But inital results do not suggest any meaningful interactions. 
 
 
-```{r interaction 1}
+```{r interaction 1, results='asis'}
 
-  summary(lm(punish~activity*cntry+income+education+age+gender, data=DATA))
+  htmlreg(lm(punish~activity*cntry+income+education+age+gender, data=DATA))
+
+  
 
 
 ```

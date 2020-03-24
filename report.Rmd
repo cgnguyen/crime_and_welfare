@@ -2,13 +2,16 @@
 title: "Crime and Punishment (and Welfare States)"
 output:
   html_document:
-    
-    df_print: paged
+  df_print: paged
+
+
+
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+
 editor_options: 
   chunk_output_type: console
 ---
@@ -36,17 +39,36 @@ While we are at it, let us also load a few other packeges that we will need for 
   needs(ggthemes)   #To make ggplot look nicer
   needs(plotly)     #To make ggplot animated
   needs(crosstalk)  # To enable highlighting
+  needs(haven)
   
 ```
 
 ## Downloading the Data
 
-The data on punitivness can be found in ESS waves 4 (2008) and 5 (2010). We can download the data directly from within R, using the "essurvey" package. You can download more than one wave at once, but to facilitate data cleaning we download each wave seperately. You will need to register your email with the ESS first. 
+The data on punitivness can be found in ESS waves 4 (2008) and 5 (2010). We can download the data directly from within R, using the "essurvey" package. You can download more than one wave at once, but to facilitate data cleaning we download each wave seperately. You will need to register your email with the ESS first. We only need to do this once - so we use an if function to check if the file exists and only download it if it does not. 
+
+
+
 
 ```{r setup get data, cache=T, message=F, warning=F, echo=T, results='hide'}
     set_email("cgnguyen@gmail.com") #Add your own email here
-    DATA_4<-import_rounds(4)
-    DATA_5<-import_rounds(5)
+
+    #Check for ESS4
+    ifelse(file.exists("./data/ESS4/ESS4e04_5.dta"),print("File Exists"), 
+           download_rounds(
+             rounds = 4,
+             output_dir = "data",
+             format = 'stata'))
+         
+    #Check for ESS5
+    ifelse(file.exists("./data/ESS4/ESS5e03_4.dta"),print("File Exists"), 
+           download_rounds(
+             rounds = 5,
+             output_dir = "data",
+             format = 'stata'))
+    
+    DATA_4<-read_dta("./data/ESS4/ESS4e04_5.dta")
+    DATA_5<-read_dta("./data/ESS5/ESS5e03_4.dta")
 ```
 
 ## Cleaning the Data

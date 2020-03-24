@@ -40,6 +40,9 @@ While we are at it, let us also load a few other packeges that we will need for 
   needs(plotly)     #To make ggplot animated
   needs(crosstalk)  # To enable highlighting
   needs(haven)
+  needs(texreg)
+  needs(broom)
+
   
 ```
 
@@ -61,7 +64,7 @@ The data on punitivness can be found in ESS waves 4 (2008) and 5 (2010). We can 
              format = 'stata'))
          
     #Check for ESS5
-    ifelse(file.exists("./data/ESS4/ESS5e03_4.dta"),print("File Exists"), 
+    ifelse(file.exists("./data/ESS5/ESS5e03_4.dta"),print("File Exists"), 
            download_rounds(
              rounds = 5,
              output_dir = "data",
@@ -355,6 +358,46 @@ This might be better with a map
       config(displayModeBar = F) 
 
 ```
+
+
+
+# Basic Regressions
+
+Let us look at individual level insecurity and how it relates to punitivness. Two main measures of insecurity, poverty (low income) and unemployment. We control for basic factors like age, education, gender etc. 
+
+At first glance, there doesn't seem to be much effect of low income/ unemployment on punitivness. In fact, low income and unemployment leads to LESS punitivness. 
+
+```{r basic regression, results='asis'}
+  DATA$income<-relevel(DATA$income, ref="F - 5th decile")
+  DATA$education<-relevel(DATA$education, ref="ES-ISCED IIIa, upper tier upper secondary")
+  
+  screenreg(lm(punish~activity+income+education+age+gender+cntry, data=DATA),
+          custom.coef.names = c("Intercept",
+                                "Education","Unemployed LFJ","Unemployed Inactive",
+                                "Sick or Disabled","Retired","Community or Military Service", "Housework", "Other Activity",
+                                "1st","2nd","3rd","4th","6th","7th","8th","9th","10th",
+                                "Not possible to harmonize","Less than lower secondary","Lower Secondary","Lower Tier Uppser Secondary",
+                                "Vocational Degree","BA Level", "MA level or higher", "Other Education",
+                                "Age","Female"),
+          groups=list("Main activity: Ref Paid Work"=2:9,
+                      "Income Decile: Ref 5th"=10:18,
+                      "Education: Ref Upper Tier Secondary"= 19:26),
+          omit.coef = "cntry")
+                      
+```
+
+
+
+But the theory has been, that this effect should differ by country and welfare state. For now, we don't look at any country level data and just let the effect of unemployment vary by country. Difficult to parse long table - need to clean this up. But inital results do not suggest any meaningful interactions. 
+
+
+```{r interaction 1}
+
+  summary(lm(punish~activity*cntry+income+education+age+gender, data=DATA))
+
+
+```
+
 
 
 

@@ -371,7 +371,7 @@ At first glance, there doesn't seem to be much effect of low income/ unemploymen
   DATA$income<-relevel(DATA$income, ref="F - 5th decile")
   DATA$education<-relevel(DATA$education, ref="ES-ISCED IIIa, upper tier upper secondary")
   
-  screenreg(lm(punish~activity+income+education+age+gender+cntry, data=DATA),
+  htmlreg(lm(punish~activity+income+education+age+gender+cntry, data=DATA),
           custom.coef.names = c("Intercept",
                                 "Education","Unemployed LFJ","Unemployed Inactive",
                                 "Sick or Disabled","Retired","Community or Military Service", "Housework", "Other Activity",

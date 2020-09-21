@@ -3,15 +3,9 @@ title: "Crime and Punishment (and Welfare States)"
 output:
   html_document:
   df_print: paged
-
-
-
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
- encoding=encoding,
- output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
-
 editor_options: 
   chunk_output_type: console
 ---
@@ -42,8 +36,7 @@ While we are at it, let us also load a few other packeges that we will need for 
   needs(haven)
   needs(texreg)
   needs(broom)
-
-  
+  needs(MASS)      #To run ordered logit models
 ```
 
 ## Downloading the Data
@@ -99,9 +92,57 @@ Note that the variable is named slightly differently in wave 4 and 5
   DATA_5$punish<-(DATA_5$hrshsnta-5)*-1
 ``` 
 
+We also look at a second dependent variable, that is a bit more complicated. ESS5 also asks "People have different ideas about the sentences which should be given to offenders. Take for instance the case of a 25 year old man who is found guilty of house burglary for the second time. Which one of the following sentences do you think he should receive?" , and for those who answer that he should go to prison, they also ask how long he should spend in prison, grouping it by 10 categories from 1-3 months to more than 10 years. 
+
+To combine these variables into one, and also include people who think no prison at all, we combine them into a new variable. We will turn this into an ordered factor variable. 
+
+
+```{r setup dep vars II}
+    
+    DATA_5$prison<-as_factor(DATA_5$stcbg2t)
+    ## Recoding DATA_5$prison into DATA_5$prison_rec
+    DATA_5$prison <- as.character(fct_recode(DATA_5$prison,
+                   "No Prison" = "Suspended prison",
+                   "No Prison" = "Fine",
+                   "No Prison" = "Community sentence",
+                   "No Prison" = "Other sentence",
+                   NULL = "Don't know",
+                   NULL = "Refusal",
+                   NULL = "No answer",
+                   NULL =  "Prison sentence"))
+
+
+    DATA_5$prison_time<-as_factor(DATA_5$tmprs)
+    ## Recoding DATA_5$prison_time into DATA_5$prison_time_rec
+    DATA_5$prison_time <- as.character(fct_recode(DATA_5$prison_time,
+                   NULL = "Not applicable",
+                   NULL = "Refusal",
+                   NULL = "Don't know",
+                   NULL = "No answer"))
+    
+    
+    #Combine the two variables 
+    DATA_5$prison_time<-coalesce(DATA_5$prison_time,DATA_5$prison)
+    
+    #Turn prison_time back into an ordered factor with the reference category being no prison time at all
+    DATA_5$prison_time<-as.factor(DATA_5$prison_time)
+  
+    ## Reordering DATA_5$prison_time
+    DATA_5$prison_time <- factor(DATA_5$prison_time, 
+                                 levels=c("No Prison", "1-3 months", "4-6 months", "7-11 months", "About 1 year", "About 2 years", 
+                                          "About 3 years", "About 4 years", "About 5 years", "6-10 years", "More than 10 years"), 
+                                 ordered=T)
+      
+    
+
+```
+
+
 ### Clean individual level independent variables 
 
-We control for sociodemographic variables such as gender, age, main activity, level of education, and household income. We need to think about what kind of measure of economic insecurity we care about. We could go with labor market status, income, or maybe even labor market risk using ISCO rates. 
+We control for sociodemographic variables such as gender, age, main activity, level of education, and household income. We need to think about what kind of measure of economic insecurity we care about. We could go with labor market status, income, or maybe even labor market risk using ISCO rates. For now we use household income and the feeling that people have about their household income (this is a subjective measure, but also has a lot less missing data than income)
+
+We also control for situations in which people have been victim of a crime. 
 
 We make use of the fact that the data is already labeled - this means we can use the "as_factor" command to turn the numerical variables into factor variables that R understands. 
 
@@ -112,14 +153,19 @@ We make use of the fact that the data is already labeled - this means we can use
   DATA_4$activity<-as_factor(DATA_4$mnactic)
   DATA_4$education<-as_factor(DATA_4$eisced)
   DATA_4$income<-as_factor(DATA_4$hinctnta)
-  
+  DATA_4$crime<-as_factor(DATA_4$crmvct)
+  DATA_4$income_feeling<-as_factor(DATA_4$hincfel)
   DATA_4$cntry<-as_factor(DATA_4$cntry)
+  DATA_4$prison_time<-NA
+  
   
   DATA_5$gender<-as_factor(DATA_5$gndr)
   DATA_5$age<-DATA_5$agea
   DATA_5$activity<-as_factor(DATA_5$mnactic)
   DATA_5$education<-as_factor(DATA_5$eisced)
   DATA_5$income<-as_factor(DATA_5$hinctnta)
+  DATA_5$crime<-as_factor(DATA_5$crmvct)
+  DATA_5$income_feeling<-as_factor(DATA_5$hincfel)
   DATA_5$cntry<-as_factor(DATA_5$cntry)
 ```
 ## Merging the Dataset
@@ -128,13 +174,24 @@ We select the variables from the dataset that we need and then merge them into o
 
 ```{r setup merge}
 
-select.vec<-c("punish","gender","age","activity","education","income","cntry")
+select.vec<-c("punish","gender","age","activity","education","income", "income_feeling","crime","prison_time","cntry")
 
 DATA_4_merge<-DATA_4[,select.vec]
 DATA_5_merge<-DATA_5[,select.vec]
 
-DATA<-rbind(DATA_4_merge,DATA_5_merge)
+DATA<-rbind(DATA_5_merge,DATA_4_merge)
 DATA<-droplevels(DATA)
+```
+
+
+I am also going to clean some of the variables some more. 
+
+```{r data clean II}
+  levels(DATA$crime)[3:5]<-NA
+  DATA$crime<-relevel(DATA$crime, ref="No")
+  
+  levels(DATA$income_feeling)[5:7]<-NA
+
 ```
 
 I am going to be using a lot of graphs in this. To make sure I don't have to define every graph theme anew, I am going to create a new theme that sets some baselines for the figures we will produce. We will start with the basic minimalist theme, rotate the x-axis by 90 degrees and change the background to white.
@@ -158,6 +215,9 @@ Let us begin by looking at the distribution of our dependent variable.
 
 ```{r summary stats}
 summary(DATA$punish)
+
+summary(DATA$prison_time)
+
 ```
 
 So on average, most people want to have higher punishments for crime, with the median answer being "agree". These averages are interesting, but let's see if these differ by a few key few factors. In line with our theory, let us look at different forms of economic risk - unemployment and household income. 
@@ -371,7 +431,44 @@ At first glance, there doesn't seem to be much effect of low income/ unemploymen
   DATA$income<-relevel(DATA$income, ref="F - 5th decile")
   DATA$education<-relevel(DATA$education, ref="ES-ISCED IIIa, upper tier upper secondary")
   
-  htmlreg(lm(punish~activity+income+education+age+gender+cntry, data=DATA),
+  DATA$prison_simple<-DATA$prison_time
+  ## Recoding DATA$prison_time into DATA$prison_time_rec
+  DATA$prison_simple<- fct_recode(DATA$prison_time,
+                 "Less than 1 year" = "1-3 months",
+                 "Less than 1 year" = "4-6 months",
+                 "Less than 1 year" = "7-11 months",
+                 "Between 1 and 2 years" = "About 1 year",
+                 "Between 1 and 2 years" = "About 2 years",
+                 "More than 2 years" = "About 3 years",
+                 "More than 2 years" = "About 4 years",
+                 "More than 2 years" = "About 5 years",
+                 "More than 2 years" = "6-10 years",
+                 "More than 2 years" = "More than 10 years")
+
+  
+  DATA_new<-subset(DATA, cntry!="LV"&cntry!="RO"&cntry!="TR")
+  DATA_new<-droplevels(DATA_new)
+  
+  
+  
+  screenreg(lm(punish~activity+income_feeling+education+age+gender+crime+as.factor(cntry), data=DATA_new))
+  
+  
+  screenreg(polr(prison_simple~activity++income_feeling+age+gender+crime+as.factor(cntry)+unclass(education), data=DATA_new))
+               
+               
+               +income_feeling+education+age+gender+crime+as.factor(cntry), data=DATA))
+  
+  htmlreg(
+               
+               
+               
+               
+               
+               
+               
+               
+               cntry, data=DATA),
           custom.coef.names = c("Intercept",
                                 "Education","Unemployed LFJ","Unemployed Inactive",
                                 "Sick or Disabled","Retired","Community or Military Service", "Housework", "Other Activity",
@@ -393,12 +490,26 @@ But the theory has been, that this effect should differ by country and welfare s
 
 ```{r interaction 1, results='asis'}
 
-  htmlreg(lm(punish~activity*cntry+income+education+age+gender, data=DATA))
+  htmlreg(lm(punish~activity*cntry+income+education+age+gender+crime, data=DATA))
 
   
 
 
+
+
 ```
+
+DATA$income_feel<-relevel(DATA$income_feel, ref="Coping on present income")
+
+summary(lm(punish~activity+income+education+age+gender+crime+cntry, data=DATA))
+
+summary(lm(punish~activity+income_feeling+education+age+gender+crime+cntry, data=DATA))
+
+
+
+####Add Class Identity from OESCH####
+
+Maybe it is the middle class that really matters 
 
 
 

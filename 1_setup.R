@@ -13,16 +13,16 @@
   needs(arm)
   
 ####Download Individual Level ESS Data####
-     set_email("cgnguyen@gmail.com") #Add your own email here
+     # set_email("cgnguyen@gmail.com") #Add your own email here
 
     #Check for ESS4
-    ifelse(file.exists("./data/ESS4/ESS4e04_5.dta"),print("File Exists"), 
-           download_rounds(
-             rounds = 4,
-             output_dir = "data",
-             format = 'stata'))
+    # ifelse(file.exists("./data/ESS4/ESS4e04_5.dta"),print("File Exists"), 
+    #        download_rounds(
+    #          rounds = 4,
+    #          output_dir = "data",
+    #          format = 'stata'))
     
-    ESS<-read_dta("./data/ESS4/ESS4e04_5.dta")
+    ESS<-read_dta("./data/ESS.dta")
     
     
     

@@ -1,0 +1,5053 @@
+Recoding of missing values exported to Stata
+
+tvtot  TV watching, total time on average weekday
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+tvpol  TV watching, news/politics/current affairs on average weekday
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rdtot  Radio listening, total time on average weekday
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+rdpol  Radio listening, news/politics/current affairs on average weekday
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+nwsptot  Newspaper reading, total time on average weekday
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+nwsppol  Newspaper reading, politics/current affairs on average weekday
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+netuse  Personal use of internet/e-mail/www
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+ppltrst  Most people can be trusted or you can't be too careful
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+pplfair  Most people try to take advantage of you, or try to be fair
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+pplhlp  Most of the time people helpful or mostly looking out for themselves
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+polintr  How interested in politics
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+polcmpl  Politics too complicated to understand
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+poldcs  Making mind up about political issues
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+trstprl  Trust in country's parliament
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+trstlgl  Trust in the legal system
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+trstplc  Trust in the police
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+trstplt  Trust in politicians
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+trstprt  Trust in political parties
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+trstep  Trust in the European Parliament
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+trstun  Trust in the United Nations
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+vote  Voted last national election
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+prtvtaat  Party voted for in last national election, Austria
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbbe  Party voted for in last national election, Belgium
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtabg  Party voted for in last national election, Bulgaria
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbch  Party voted for in last national election, Switzerland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtcy  Party voted for in last national election, Cyprus
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtacz  Party voted for in last national election, Czechia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvbde1  Party voted for in last national election 1, Germany
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvbde2  Party voted for in last national election 2, Germany
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbdk  Party voted for in last national election, Denmark
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbee  Party voted for in last national election, Estonia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbes  Party voted for in last national election, Spain
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+66             .D             Not applicable
+
+
+prtvtafi  Party voted for in last national election, Finland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbfr  Party voted for in last national election, France (ballot 1)
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtgb  Party voted for in last national election, United Kingdom
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbgr  Party voted for in last national election, Greece
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvthr  Party voted for in last national election, Croatia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbhu  Party voted for in last national election, Hungary
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtie  Party voted for in last national election, Ireland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtail  Party voted for in last national election, Israel
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvlt1  Party voted for in last national election 1, Lithuania (first vote, party)
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvlt2  Party voted for in last national election 2, Lithuania (second vote, party)
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvlt3  Party voted for in last national election 3, Lithuania (third vote, party)
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtlv  Party voted for in last national election, Latvia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtcnl  Party voted for in last national election, Netherlands
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtno  Party voted for in last national election, Norway
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbpl  Party voted for in last national election, Poland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtapt  Party voted for in last national election, Portugal
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtaro  Party voted for in last national election, Romania
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtaru  Party voted for in last national election, Russian Federation
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtse  Party voted for in last national election, Sweden
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtcsi  Party voted for in last national election, Slovenia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtask  Party voted for in last national election, Slovakia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtatr  Party voted for in last national election, Turkey
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtvtbua  Party voted for in last national election, Ukraine
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+contplt  Contacted politician or government official last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+wrkprty  Worked in political party or action group last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+wrkorg  Worked in another organisation or association last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+badge  Worn or displayed campaign badge/sticker last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sgnptit  Signed petition last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+pbldmn  Taken part in lawful public demonstration last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+bctprd  Boycotted certain products last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+clsprty  Feel closer to a particular party than all other parties
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+prtclaat  Which party feel closer to, Austria
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbbe  Which party feel closer to, Belgium
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclabg  Which party feel closer to, Bulgaria
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbch  Which party feel closer to, Switzerland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclcy  Which party feel closer to, Cyprus
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclacz  Which party feel closer to, Czechia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbde  Which party feel closer to, Germany
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbdk  Which party feel closer to, Denmark
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbee  Which party feel closer to, Estonia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbes  Which party feel closer to, Spain
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+66             .D             Not applicable
+
+
+prtclafi  Which party feel closer to, Finland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbfr  Which party feel closer to, France
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclgb  Which party feel closer to, United Kingdom
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbgr  Which party feel closer to, Greece
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclhr  Which party feel closer to, Croatia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbhu  Which party feel closer to, Hungary
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbie  Which party feel closer to, Ireland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclail  Which party feel closer to, Israel
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtcllt  Which party feel closer to, Lithuania
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtcllv  Which party feel closer to, Latvia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbnl  Which party feel closer to, Netherlands
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclno  Which party feel closer to, Norway
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclcpl  Which party feel closer to, Poland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbpt  Which party feel closer to, Portugal
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclaro  Which party feel closer to, Romania
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclaru  Which party feel closer to, Russian Federation
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclse  Which party feel closer to, Sweden
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclcsi  Which party feel closer to, Slovenia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclask  Which party feel closer to, Slovakia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclatr  Which party feel closer to, Turkey
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtclbua  Which party feel closer to, Ukraine
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtdgcl  How close to party
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+mmbprty  Member of political party
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+prtmbaat  Member of which party, Austria
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbbe  Member of which party, Belgium
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbabg  Member of which party, Bulgaria
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbch  Member of which party, Switzerland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbcy  Member of which party, Cyprus
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbacz  Member of which party, Czechia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbde  Member of which party, Germany
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbdk  Member of which party, Denmark
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbee  Member of which party, Estonia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbes  Member of which party, Spain
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+66             .D             Not applicable
+
+
+prtmbafi  Member of which party, Finland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbfr  Member of which party, France
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbgb  Member of which party, United Kingdom
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbgr  Member of which party, Greece
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbhr  Member of which party, Croatia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbhu  Member of which party, Hungary
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbaie  Member of which party, Ireland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbail  Member of which party, Israel
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmblt  Member of which party, Lithuania
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmblv  Member of which party, Latvia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbnl  Member of which party, Netherlands
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbno  Member of which party, Norway
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbcpl  Member of which party, Poland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbapt  Member of which party, Portugal
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbaro  Member of which party, Romania
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbaru  Member of which party, Russian Federation
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbse  Member of which party, Sweden
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbcsi  Member of which party, Slovenia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbask  Member of which party, Slovakia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbatr  Member of which party, Turkey
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+prtmbbua  Member of which party, Ukraine
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+lrscale  Placement on left right scale
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stflife  How satisfied with life as a whole
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stfeco  How satisfied with present state of economy in country
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stfgov  How satisfied with the national government
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stfdem  How satisfied with the way democracy works in country
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stfedu  State of education in country nowadays
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stfhlth  State of health services in country nowadays
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gincdif  Government should reduce differences in income levels
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+freehms  Gays and lesbians free to live life as they wish
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+prtyban  Ban political parties that wish overthrow democracy
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+scnsenv  Modern science can be relied on to solve environmental problems
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+euftf  European Union: European unification go further or gone too far
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+imsmetn  Allow many/few immigrants of same race/ethnic group as majority
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+imdfetn  Allow many/few immigrants of different race/ethnic group from majority
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+impcntr  Allow many/few immigrants from poorer countries outside Europe
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+imbgeco  Immigration bad or good for country's economy
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+imueclt  Country's cultural life undermined or enriched by immigrants
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+imwbcnt  Immigrants make country worse or better place to live
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+happy  How happy are you
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+sclmeet  How often socially meet with friends, relatives or colleagues
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+inmdisc  Anyone to discuss intimate and personal matters with
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sclact  Take part in social activities compared to others of same age
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+crmvct  Respondent or household member victim of burglary/assault last 5 years
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+aesfdrk  Feeling of safety of walking alone in local area after dark
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+brghmwr  How often worry about your home being burgled
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+brghmef  Worry about home burgled has effect on quality of life
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+crvctwr  How often worry about becoming a victim of violent crime
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+crvctef  Worry about becoming victim of violent crime has effect on quality of life
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+trrenyr  How likely terrorist attack in Europe during next twelve months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+trrcnyr  How likely terrorist attack in country during next twelve months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+trrprsn  Terrorist suspect in prison until police satisfied
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+trrtort  Torture in country never justified even to prevent terrorist attack
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+health  Subjective general health
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+hlthhmp  Hampered in daily activities by illness/disability/infirmity/mental problem
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+rlgblg  Belonging to particular religion or denomination
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+rlgdnm  Religion or denomination belonging to at present
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+99             .C             No answer
+
+
+rlgdnat  Religion or denomination belonging to at present, Austria
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnch  Religion or denomination belonging to at present, Switzerland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdncy  Religion or denomination belonging to at present, Cyprus
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnfi  Religion or denomination belonging to at present, Finland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdngb  Religion or denomination belonging to at present, United Kingdom
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdngr  Religion or denomination belonging to at present, Greece
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnhu  Religion or denomination belonging to at present, Hungary
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnie  Religion or denomination belonging to at present, Ireland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnil  Religion or denomination belonging to at present, Israel
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnlt  Religion or denomination belonging to at present, Lithuania
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnlv  Religion or denomination belonging to at present, Latvia
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnnl  Religion or denomination belonging to at present, Netherlands
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnno  Religion or denomination belonging to at present, Norway
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnpl  Religion or denomination belonging to at present, Poland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnpt  Religion or denomination belonging to at present, Portugal
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnro  Religion or denomination belonging to at present, Romania
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnru  Religion or denomination belonging to at present, Russian Federation
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnse  Religion or denomination belonging to at present, Sweden
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnsk  Religion or denomination belonging to at present, Slovakia
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdnua  Religion or denomination belonging to at present, Ukraine
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgblge  Ever belonging to particular religion or denomination
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+rlgdnme  Religion or denomination belonging to in the past
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+99             .C             No answer
+
+
+rlgdeat  Religion or denomination belonging to in the past, Austria
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdech  Religion or denomination belonging to in the past, Switzerland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdecy  Religion or denomination belonging to in the past, Cyprus
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdefi  Religion or denomination belonging to in the past, Finland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdegb  Religion or denomination belonging to in the past, United Kingdom
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdegr  Religion or denomination belonging to in the past, Greece
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdehu  Religion or denomination belonging to in the past, Hungary
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdeie  Religion or denomination belonging to in the past, Ireland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdeil  Religion or denomination belonging to in the past, Israel
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdelt  Religion or denomination belonging to in the past, Lithuania
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdelv  Religion or denomination belonging to in the past, Latvia
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdenl  Religion or denomination belonging to in the past, Netherlands
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdeno  Religion or denomination belonging to in the past, Norway
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdepl  Religion or denomination belonging to in the past, Poland
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdept  Religion or denomination belonging to in the past, Portugal
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdero  Religion or denomination belonging to in the past, Romania
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgderu  Religion or denomination belonging to in the past, Russian Federation
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdese  Religion or denomination belonging to in the past, Sweden
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdesk  Religion or denomination belonging to in the past, Slovakia
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdeua  Religion or denomination belonging to in the past, Ukraine
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+9999           .C             No answer
+
+
+rlgdgr  How religious are you
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+rlgatnd  How often attend religious services apart from special occasions
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+pray  How often pray apart from at religious services
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+dscrgrp  Member of a group discriminated against in this country
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ctzcntr  Citizen of country
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+brncntr  Born in country
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+livecntr  How long ago first came to live in country
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+blgetmg  Belong to minority ethnic group in country
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+facntr  Father born in country
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+mocntr  Mother born in country
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+dfincac  Large differences in income acceptable to reward talents and efforts
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+schtaut  Schools teach children obey authority
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+wmcpwrk  Women should be prepared to cut down on paid work for sake of family
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+smdfslv  For fair society, differences in standard of living should be small
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+hrshsnt  People who break the law much harsher sentences
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+mnrgtjb  Men should have more right to job than women when jobs are scarce
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+uemplwk  Of every 100 working age how many unemployed and looking for work
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+sickdsb  Of every 100 working age how many long-term sick, disabled
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+nmnybsc  Of every 100 working age how many not money for basic necessities
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+brnocnt  Of every 100 working age how many born outside country
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+slvpens  Standard of living of pensioners
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+slvuemp  Standard of living of unemployed
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+cldcrsv  Provision of affordable child care services for working parents
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+yngfnjb  Opportunities for young people to find first full-time job
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gvjbevn  Job for everyone, governments' responsibility
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gvhlthc  Health care for the sick, governments' responsibility
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gvslvol  Standard of living for the old, governments' responsibility
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gvslvue  Standard of living for the unemployed, governments' responsibility
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gvcldcr  Child care services for working parents, governments' responsibility
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gvpdlwk  Paid leave from work to care for sick family, governments' responsibility
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+sbstrec  Social benefits/services place too great strain on economy
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sbprvpv  Social benefits/services prevent widespread poverty
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sbeqsoc  Social benefits/services lead to a more equal society
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sbenccm  Social benefits/services encourage people other countries to come live here
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sbbsntx  Social benefits/services cost businesses too much in taxes/charges
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sbcwkfm  Social benefits/services make it easier to combine work and family
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sblazy  Social benefits/services make people lazy
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sblwcoa  Social benefits/services make people less willing care for one another
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+sblwlka  Social benefits/services make people less willing look after themselves/family
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+hlthcef  Provision of health care, how efficient
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+txautef  Tax authorities, how efficient in doing their job
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+dcndleq  Doctors, nurses give special advantages or deal with everyone equally
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+txadleq  Tax authorities give special advantages or deal with everyone equally
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+ditxssp  Government decrease/increase taxes and social spending
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+txearn  Taxation for higher versus lower earners
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+earnpen  Higher or lower earners should get larger old age pensions
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+earnueb  Higher or lower earners should get larger unemployment benefits
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+imsclbn  When should immigrants obtain rights to social benefits/services
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+imrccon  Immigrants receive more or less than they contribute
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+uentrjb  Most unemployed people do not really try to find a job
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+lbenent  Many with very low incomes get less benefit than legally entitled to
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+bennent  Many manage to obtain benefits/services not entitled to
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+insfben  Insufficient benefits in country to help people in real need
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+prtsick  Employees often pretend they are sick to stay at home
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+lvpbhlt  Level of public health care affordable 10 years from now
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+lvoapen  Level of old age pension affordable 10 years from now
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+lkuemp  How likely unemployed and looking for work next 12 months
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+lklpwcf  How likely less time paid work than like because care for family next 12 months
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+lknemny  How likely not enough money for household necessities next 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+lknhlcn  How likely not receive health care needed if become ill next 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+agdcyng  Age people stop being described as young
+
+Orig. Value    New Value      Label
+777            .A             Refusal
+888            .B             Don't know
+999            .C             No answer
+
+
+agdcold  Age people start being described as old
+
+Orig. Value    New Value      Label
+777            .A             Refusal
+888            .B             Don't know
+999            .C             No answer
+
+
+agegrbl  Which age group belonging to
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+agrpblg  Strong or weak sense of belonging to age group
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stsp20  How most people view status of people in their 20s
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stsp40  How most people view status of people in their 40s
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+stsp70  How most people view status of people over 70
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+wr20crm  How worried about level of crime committed by people in their 20s
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+wr20emp  How worried that employers prefer people in 20s rather than 40 or older
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+p20cust  People in their 20s effect on customs and way of life
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+p20cnec  People in their 20s contribution to the economy these days
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+p70hltb  People over 70 a burden on health service these days
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+p70cust  People over 70 effect on customs and way of life
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+p70cnec  People over 70 contribution to the economy these days
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+v20frnd  Most people view those in their 20s as friendly
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v20comp  Most people view those in their 20s as competent
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v20mrst  Most people view those in their 20s as having high moral standards
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v20resp  Most people view those in their 20s with respect
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70frnd  Most people view those over 70 as friendly
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70comp  Most people view those over 70 as competent
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70mrst  Most people view those over 70 as having high moral standards
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70resp  Most people view those over 70 with respect
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+acq30bs  How acceptable for most people if qualified 30 year old appointed as their boss
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+acq70bs  How acceptable for most people if qualified 70 year old appointed as their boss
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+v20envy  Most people view those in their 20s with envy
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v20pity  Most people view those in their 20s with pity
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v20adm  Most people view those in their 20s with admiration
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v20cntm  Most people view those in their 20s with contempt
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70envy  Most people view those over 70 with envy
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70pity  Most people view those over 70 with pity
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70adm  Most people view those over 70 with admiration
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+v70cntm  Most people view those over 70 with contempt
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+oafl20  Overall how negative or positive feel towards people in their 20s
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+oafl70  Overall how negative or positive feel towards people over 70
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+predage  How often past year treated with prejudice because of age
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+predsex  How often past year treated with prejudice because of sex
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+predetn  How often past year treated with prejudice because of ethnic background
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+lkrspag  How often past year felt lack of respect because of age
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+trtbdag  How often past year treated badly because of age
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+frndy30  How many friends other than family younger than 30
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+dprsy30  Can discuss personal issues with friends younger than 30
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+frndo70  How many  friends other than family aged over 70
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+dprso70  Can discuss personal issues with friends aged over 70
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+ageyo30  Respondents age, younger or older than 30
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+chg1530  Any children or grandchildren between age 15 and 30
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+dprschg  Can discuss personal issues with children or grandchildren age 15 to 30
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+mbfmo70  Any members of family aged over 70
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+dprsf70  Can discuss personal issues with members of family aged over 70
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+pvolwrk  Done paid or voluntary work last month
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+twcol20  Time spent working with colleagues in their 20s last month
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+twcol70  Time spent working with colleagues aged over 70 last month
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+sgr2070  How see people in their 20s and over 70
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+buproag  How important to be unprejudiced against other age groups
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+suproag  How important to be seen as being unprejudiced against other age groups
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+srdscag  How serious is discrimination against people because of age
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+hhmmb  Number of people living regularly as member of household
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+gndr  Gender
+
+Orig. Value    New Value      Label
+9              .A             No answer
+
+
+gndr2  Gender of second person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr3  Gender of third person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr4  Gender of fourth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr5  Gender of fifth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr6  Gender of sixth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr7  Gender of seventh person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr8  Gender of eighth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr9  Gender of ninth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr10  Gender of tenth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr11  Gender of eleventh person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr12  Gender of twelfth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr13  Gender of thirteenth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr14  Gender of fourteenth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr15  Gender of fifteenth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+gndr16  Gender of sixteenth person in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+9              .C             No answer
+
+
+yrbrn  Year of birth
+
+Orig. Value    New Value      Label
+7777           .A             Refusal
+8888           .B             Don't know
+9999           .C             No answer
+
+
+agea  Age of respondent, calculated
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+yrbrn2  Year of birth of second person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn3  Year of birth of third person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn4  Year of birth of fourth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn5  Year of birth of fifth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn6  Year of birth of sixth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn7  Year of birth of seventh person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn8  Year of birth of eighth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn9  Year of birth of ninth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn10  Year of birth of tenth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn11  Year of birth of eleventh person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn12  Year of birth of twelfth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn13  Year of birth of thirteenth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn14  Year of birth of fourteenth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn15  Year of birth of fifteenth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+yrbrn16  Year of birth of sixteenth person in household
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+rshipa2  Second person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa3  Third person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa4  Fourth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa5  Fifth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa6  Sixth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa7  Seventh person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa8  Eighth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa9  Ninth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa10  Tenth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa11  Eleventh person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa12  Twelfth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa13  Thirteenth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa14  Fourteenth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa15  Fifteenth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+rshipa16  Sixteenth person in household: relationship to respondent
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+domicil  Domicile, respondent's description
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+edulvla  Highest level of education
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+eisced  Highest level of education, ES - ISCED
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvat  Highest level of education, Austria
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvabe  Highest level of education, Belgium
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvcch  Highest level of education, Switzerland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvacy  Highest level of education, Cyprus
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvcz  Highest level of education, Czechia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvadk  Highest level of education, Denmark
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvbee  Highest level of education, Estonia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvaes  Highest level of education, Spain
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvbfr  Highest level of education, France
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvgb  Highest level of education, United Kingdom
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvagr  Highest level of education, Greece
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvhr  Highest level of education, Croatia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvbhu  Highest level of education, Hungary
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvbie  Highest level of education, Ireland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvail  Highest level of education, Israel
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvlt  Highest level of education, Lithuania
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Dont know
+99             .C             No answer
+
+
+edlvlv  Highest level of education, Latvia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvnl  Highest level of education, Netherlands
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvano  Highest level of education, Norway
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvbpl  Highest level of education, Poland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvbpt  Highest level of education, Portugal
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvro  Highest level of education, Romania
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvru  Highest level of education, Russian Federation
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvase  Highest level of education, Sweden
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvasi  Highest level of education, Slovenia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvask  Highest level of education, Slovakia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvtr  Highest level of education, Turkey
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvaua  Highest level of education, Ukraine
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edufld  Field or subject, highest qualification
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+eduyrs  Years of full-time education completed
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+mainact  Main activity last 7 days
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+mnactic  Main activity, last 7 days. All respondents. Post coded
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+crpdwk  Control paid work last 7 days
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+pdjobev  Ever had a paid job
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+pdjobyr  Year last in paid job
+
+Orig. Value    New Value      Label
+6666           .A             Not applicable
+7777           .B             Refusal
+8888           .C             Don't know
+9999           .D             No answer
+
+
+emplrel  Employment relation
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+emplno  Number of employees respondent has/had
+
+Orig. Value    New Value      Label
+66666          .A             Not applicable
+77777          .B             Refusal
+88888          .C             Don't know
+99999          .D             No answer
+
+
+wrkctra  Employment contract unlimited or limited duration
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+estsz  Establishment size
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+jbspv  Responsible for supervising other employees
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+njbspv  Number of people responsible for in job
+
+Orig. Value    New Value      Label
+66666          .A             Not applicable
+77777          .B             Refusal
+88888          .C             Don't know
+99999          .D             No answer
+
+
+wkdcorga  Allowed to decide how daily work is organised
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+iorgact  Allowed to influence policy decisions about activities of organisation
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+wkhct  Total contracted hours per week in main job overtime excluded
+
+Orig. Value    New Value      Label
+666            .A             Not applicable
+777            .B             Refusal
+888            .C             Don't know
+999            .D             No answer
+
+
+wkhtot  Total hours normally worked per week in main job overtime included
+
+Orig. Value    New Value      Label
+666            .A             Not applicable
+777            .B             Refusal
+888            .C             Don't know
+999            .D             No answer
+
+
+nacer11  Industry, NACE rev.1.1
+
+Orig. Value    New Value      Label
+666            .A             Not applicable
+777            .B             Refusal
+888            .C             Don't know
+999            .D             No answer
+
+
+tporgwk  What type of organisation work/worked for
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+iscoco  Occupation, ISCO88 (com)
+
+Orig. Value    New Value      Label
+66666          .A             Not applicable
+77777          .B             Refusal
+88888          .C             Don't know
+99999          .D             No answer
+
+
+wrkac6m  Paid work in another country, period more than 6 months last 10 years
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+uemp3m  Ever unemployed and seeking work for a period more than three months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+uemp12m  Any period of unemployment and work seeking lasted 12 months or more
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+uemp5yr  Any period of unemployment and work seeking within last 5 years
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+mbtru  Member of trade union or similar organisation
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+hincsrca  Main source of household income
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+hinctnta  Household's total net income, all sources
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+hincfel  Feeling about household's income nowadays
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+brwmny  Borrow money to make ends meet, difficult or easy
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+partner  Lives with husband/wife/partner at household grid
+
+Orig. Value    New Value      Label
+9              .A             Not available
+
+
+edulvlpa  Partner's highest level of education
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+eiscedp  Partner's highest level of education, ES - ISCED
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpat  Partner's highest level of education, Austria
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpbe  Partner's highest level of education, Belgium
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpch  Partner's highest level of education, Switzerland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpcy  Partner's highest level of education, Cyprus
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpcz  Partner's highest level of education, Czechia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpdk  Partner's highest level of education, Denmark
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpee  Partner's highest level of education, Estonia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpes  Partner's highest level of education, Spain
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpfr  Partner's highest level of education, France
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpgb  Partner's highest level of education, United Kingdom
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpgr  Partner's highest level of education, Greece
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvphr  Partner's highest level of education, Croatia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvphu  Partner's highest level of education, Hungary
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpie  Partner's highest level of education, Ireland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpil  Partner's highest level of education, Israel
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvplt  Partner's highest level of education, Lithuania
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Dont know
+99             .D             No answer
+
+
+edlvplv  Partner's highest level of education, Latvia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpnl  Partner's highest level of education, Netherlands
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpno  Partner's highest level of education, Norway
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvppl  Partner's highest level of education, Poland
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvppt  Partner's highest level of education, Portugal
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpro  Partner's highest level of education, Romania
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpru  Partner's highest level of education, Russian Federation
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpse  Partner's highest level of education, Sweden
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpsi  Partner's highest level of education, Slovenia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpsk  Partner's highest level of education, Slovakia
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvptr  Partner's highest level of education, Turkey
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edlvpua  Partner's highest level of education, Ukraine
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+mnactp  Partner's main activity last 7 days
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+crpdwkp  Partner, control paid work last 7 days
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+iscocop  Occupation partner, ISCO88 (com)
+
+Orig. Value    New Value      Label
+66666          .A             Not applicable
+77777          .B             Refusal
+88888          .C             Don't know
+99999          .D             No answer
+
+
+emprelp  Partner's employment relation
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+emplnop  Number of employees partner has
+
+Orig. Value    New Value      Label
+66666          .A             Not applicable
+77777          .B             Refusal
+88888          .C             Don't know
+99999          .D             No answer
+
+
+jbspvp  Partner responsible for supervising other employees
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+njbspvp  Number of people partner responsible for in job
+
+Orig. Value    New Value      Label
+66666          .A             Not applicable
+77777          .B             Refusal
+88888          .C             Don't know
+99999          .D             No answer
+
+
+wkdcorp  Partner allowed to decide how daily work is organised
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+ioactp  Partner is allowed to influence policy decisions about activities of organisation
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+wkhtotp  Hours normally worked a week in main job overtime included, partner
+
+Orig. Value    New Value      Label
+666            .A             Not applicable
+777            .B             Refusal
+888            .C             Don't know
+999            .D             No answer
+
+
+edulvlfa  Father's highest level of education
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+eiscedf  Father's highest level of education, ES - ISCED
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfat  Father's highest level of education, Austria
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfbe  Father's highest level of education, Belgium
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfch  Father's highest level of education, Switzerland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfcy  Father's highest level of education, Cyprus
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfcz  Father's highest level of education, Czechia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfdk  Father's highest level of education, Denmark
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfee  Father's highest level of education, Estonia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfes  Father's highest level of education, Spain
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvffr  Father's highest level of education, France
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfgb  Father's highest level of education, United Kingdom
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfgr  Father's highest level of education, Greece
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfhr  Father's highest level of education, Croatia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfhu  Father's highest level of education, Hungary
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfie  Father's highest level of education, Ireland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfil  Father's highest level of education, Israel
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvflt  Father's highest level of education, Lithuania
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Dont know
+99             .C             No answer
+
+
+edlvflv  Father's highest level of education, Latvia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfnl  Father's highest level of education, Netherlands
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfno  Father's highest level of education, Norway
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfpl  Father's highest level of education, Poland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfpt  Father's highest level of education, Portugal
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfro  Father's highest level of education, Romania
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfru  Father's highest level of education, Russian Federation
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfse  Father's highest level of education, Sweden
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfsi  Father's highest level of education, Slovenia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfsk  Father's highest level of education, Slovakia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvftr  Father's highest level of education, Turkey
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvfua  Father's highest level of education, Ukraine
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+emprf14  Father's employment status when respondent 14
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+emplnof  Number of employees father had
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+jbspvf  Father responsible for supervising other employees
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+occf14b  Father's occupation when respondent 14
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+edulvlma  Mother's highest level of education
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+eiscedm  Mother's highest level of education, ES - ISCED
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmat  Mother's highest level of education, Austria
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmbe  Mother's highest level of education, Belgium
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmch  Mother's highest level of education, Switzerland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmcy  Mother's highest level of education, Cyprus
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmcz  Mother's highest level of education, Czechia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmdk  Mother's highest level of education, Denmark
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmee  Mother's highest level of education, Estonia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmes  Mother's highest level of education, Spain
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmfr  Mother's highest level of education, France
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmgb  Mother's highest level of education, United Kingdom
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmgr  Mother's highest level of education, Greece
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmhr  Mother's highest level of education, Croatia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmhu  Mother's highest level of education, Hungary
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmie  Mother's highest level of education, Ireland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmil  Mother's highest level of education, Israel
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmlt  Mother's highest level of education, Lithuania
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Dont know
+99             .C             No answer
+
+
+edlvmlv  Mother's highest level of education, Latvia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmnl  Mother's highest level of education, Netherlands
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmno  Mother's highest level of education, Norway
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmpl  Mother's highest level of education, Poland
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmpt  Mother's highest level of education, Portugal
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmro  Mother's highest level of education, Romania
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmru  Mother's highest level of education, Russian Federation
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmse  Mother's highest level of education, Sweden
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmsi  Mother's highest level of education, Slovenia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmsk  Mother's highest level of education, Slovakia
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmtr  Mother's highest level of education, Turkey
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+edlvmua  Mother's highest level of education, Ukraine
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+emprm14  Mother's employment status when respondent 14
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+emplnom  Number of employees mother had
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+jbspvm  Mother responsible for supervising other employees
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+occm14b  Mother's occupation when respondent 14
+
+Orig. Value    New Value      Label
+66             .A             Not applicable
+77             .B             Refusal
+88             .C             Don't know
+99             .D             No answer
+
+
+atncrse  Improve knowledge/skills: course/lecture/conference, last 12 months
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+maritala  Legal marital status
+
+Orig. Value    New Value      Label
+77             .A             Refusal
+88             .B             Don't know
+99             .C             No answer
+
+
+lvghwa  Currently living with husband/wife/civil partner
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+lvgptna  Currently living with partner
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+lvgptne  Ever lived with a partner without being married
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+dvrcdev  Ever been divorced
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+chldhm  Children living at home or not
+
+Orig. Value    New Value      Label
+9              .A             Not available
+
+
+chldhhe  Ever had children living in household
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+7              .B             Refusal
+8              .C             Don't know
+9              .D             No answer
+
+
+fxltph  Fixed-line telephone in accommodation
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+mbltph  Personally have mobile telephone
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+inttph  Use the Internet for telephone calls at home
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipcrtiv  Important to think new ideas and being creative
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+imprich  Important to be rich, have money and expensive things
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipeqopt  Important that people are treated equally and have equal opportunities
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipshabt  Important to show abilities and be admired
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+impsafe  Important to live in secure and safe surroundings
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+impdiff  Important to try new and different things in life
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipfrule  Important to do what is told and follow rules
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipudrst  Important to understand different people
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipmodst  Important to be humble and modest, not draw attention
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipgdtim  Important to have a good time
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+impfree  Important to make own decisions and be free
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+iphlppl  Important to help people and care for others well-being
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipsuces  Important to be successful and that people recognize achievements
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipstrgv  Important that government is strong and ensures safety
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipadvnt  Important to seek adventures and have an exciting life
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+ipbhprp  Important to behave properly
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+iprspot  Important to get respect from others
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+iplylfr  Important to be loyal to friends and devote to people close
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+impenv  Important to care for nature and environment
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+imptrad  Important to follow traditions and customs
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+impfun  Important to seek fun and things that give pleasure
+
+Orig. Value    New Value      Label
+7              .A             Refusal
+8              .B             Don't know
+9              .C             No answer
+
+
+regionat  Region, Austria
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionbe  Region, Belgium
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionbg  Region, Bulgaria
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regioach  Region, Switzerland
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regioncy  Region, Cyprus
+
+Orig. Value    New Value      Label
+999            .A             No answer
+
+
+regioacz  Region, Czechia
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionde  Region, Germany
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regioadk  Region, Denmark
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionee  Region, Estonia
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regioaes  Region, Spain
+
+Orig. Value    New Value      Label
+999            .A             No answer
+
+
+regioafi  Region, Finland
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionfr  Region, France
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regiongb  Region, United Kingdom
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regioagr  Region, Greece
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionhr  Region, Croatia
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionhu  Region, Hungary
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regiobie  Region, Ireland
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionil  Region, Israel
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionlt  Region, Lithuania
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionlv  Region, Latvia
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionnl  Region, Netherlands
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionno  Region, Norway
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionpl  Region, Poland
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regioapt  Region, Portugal
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionro  Region, Romania
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionru  Region, Russian Federation
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionse  Region, Sweden
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionsi  Region, Slovenia
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionsk  Region, Slovakia
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regiontr  Region, Turkey
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+regionua  Region, Ukraine
+
+Orig. Value    New Value      Label
+999            .A             Not available
+
+
+inwdds  Start of interview, day of month
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+inwmms  Start of interview, month
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+inwyys  Start of interview, year
+
+Orig. Value    New Value      Label
+9999           .A             Not available
+
+
+inwshh  Start of interview, hour
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+inwsmm  Start of interview, minute
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+inwdde  End of interview, day of month
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+inwmme  End of interview, month
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+inwyye  End of interview, year
+
+Orig. Value    New Value      Label
+9999           .A             Not available
+
+
+inwehh  End of interview, hour
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+inwemm  End of interview, minute
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+spltadmc  Administration of split ballot and MTMM
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+supqad1  Administration of supplementary questionnaire 1
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+9              .B             No answer
+
+
+supqad2  Administration of supplementary questionnaire 2
+
+Orig. Value    New Value      Label
+6              .A             Not applicable
+9              .B             No answer
+
+
+supqdd  Day of month, supplementary questionnaire
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+supqmm  Month, supplementary questionnaire
+
+Orig. Value    New Value      Label
+99             .A             Not available
+
+
+supqyr  Year, supplementary questionnaire
+
+Orig. Value    New Value      Label
+9999           .A             Not available
+
+

@@ -10,6 +10,7 @@
   needs(broom)
   needs(MASS)      #To run ordered logit models
   needs(sjPlot)
+  needs(arm)
   
 ####Download Individual Level ESS Data####
      set_email("cgnguyen@gmail.com") #Add your own email here
@@ -22,6 +23,9 @@
              format = 'stata'))
     
     ESS<-read_dta("./data/ESS4/ESS4e04_5.dta")
+    
+    
+    
     
     
 ####Data Cleaning####
@@ -41,7 +45,31 @@
       #Indes of punitnvess -> Check for factor solution? Need to exclude NA for either cases
       ESS$wel_index<-ESS$wel_ben+ESS$wel_job
       
+      #Welfare makes people lazy 
       ESS$wel_lazy<-(ESS$sblazy-5)*-1
+      
+    ####*Specific Welfare Policy preference####
+      #Spending/taxation tradeoff
+      ESS$welpol_general<-ESS$ditxssp
+      ESS$welpol_general_1<-ESS$gincdif
+      
+      #Unemployed
+      ESS$welpol_unemp<-ESS$gvslvue
+      
+      #Old people 
+      ESS$welpol_old<-ESS$gvslvol
+      
+      #Sick people
+      ESS$welpol_health<-ESS$gvhlthc
+      
+      #Childcare
+      ESS$welpol_child<-ESS$gvcldcr
+      
+      #Migratnts -note different wording , put in more than they deserve, not sure it can be compared 
+      ESS$welpol_migrants<-(ESS$imrccon-10)*-1
+      
+      head(ESS[,c("imrccon","welpol_migrants")])
+      
 
     ####*sociodemographics####
       ESS$gender<-as_factor(zap_missing(ESS$gndr))
@@ -104,14 +132,158 @@
 # -	Variable lknhlcn: How likely not receive health care needed if become ill next 12 months
 # -	+ fear of crime, walk at night, crime victimization waere hier sicher angebracht 
 
+    ####*crime experineces and victimization
+    ESS$crime<-as_factor(zap_missing(ESS$crmvct))
+    ESS$crime<-relevel(ESS$crime, ref="No")
+    
+    ESS$crime_fear<-as_factor(zap_missing(ESS$crvctwr))     
+       
+####Add national control variables####
+    #GDP capita
+    GDP<-read.csv("./../data/country_data/")
+    
+    
+    #inequality/gini
+    
+    #unemployment benefit generosity 
+    
+    #crime rate/ homicide rates
 
-      
-       ESS$crime<-as_factor(zap_missing(ESS$crmvct))
-      
-      
-      
+####Welfare attitudes and punitvness link models####
+   
+    mod_1<-lm(welpol_general~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        cntry, data=ESS)
+    
+    summary(mod_1)
+       
+       
+    ####*Check mediation model? crime punitivness to welfare punitivness to welfare attitdes####
+    library(mediation)
     
     
+    mod_1_y<-lm(welpol_general~punish+wel_lazy+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        cntry, data=ESS)
+    
+    
+    mod_1_m<-lm(wel_lazy~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        cntry, data=ESS)
+    summary(mod_1_m)
+       
+       
+    mod_mediate<-mediate(model.m = mod_1_m, model.y = mod_1_y,
+                         sims=1000, dropobs = T, treat="punish",mediator = "wel_lazy")
+    summary(mod_mediate)
+    
+     
+####Depreciated- stuff that didn't work#### 
+      
+####New Approach - compare the effect of punitivness on other welfare attitudes by order of deservingness####
+    ESS_subset<-ESS %>%
+         dplyr::select(starts_with("welpol"),punish,
+                       age,income_simple,education,activity,gender,
+                        lrscale,
+                        # trust,
+                        # trstprl,trstlgl,trstplc,
+                        crime,
+                        cntry)%>%
+         na.omit()
+         
+       
+       
+       
+    mod_1_welpol_general<-lm(welpol_general~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        # trust+    #social variables
+                        # trstprl+trstlgl+trstplc+
+                        crime+
+                        cntry, data=ESS_subset)
+    
+    
+       
+    mod_1_welpol_unemp<-lm(welpol_unemp~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        # trust+    #social variables
+                        # trstprl+trstlgl+trstplc+
+                        crime+
+                        cntry, data=ESS_subset)
+    
+    mod_1_welpol_old<-lm(welpol_old~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        # trust+    #social variables
+                        # trstprl+trstlgl+trstplc+
+                        crime+
+                        cntry, data=ESS_subset)
+       
+    mod_1_welpol_child<-lm(welpol_child~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        # trust+    #social variables
+                        # trstprl+trstlgl+trstplc+
+                        crime+
+                        cntry, data=ESS_subset)    
+   
+    mod_1_welpol_migrants<-lm(welpol_migrants~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        # trust+    #social variables
+                        # trstprl+trstlgl+trstplc+
+                        crime+
+                        cntry, data=ESS_subset)    
+      
+    mod_1_welpol_health<-lm(welpol_health~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        # trust+    #social variables
+                        # trstprl+trstlgl+trstplc+
+                        crime+
+                        cntry, data=ESS_subset)           
+      #   
+      # screenreg(list(standardize(mod_1_welpol_general),
+      #                standardize(mod_1_welpol_migrants),
+      #                standardize(mod_1_welpol_unemp),
+      #                standardize(mod_1_welpol_child),
+      #                standardize(mod_1_welpol_old)),
+      #           custom.model.names = c("General","Migrants","Unemployed","Childcare","Old People"))
+                
+             #   
+      htmlreg(list(mod_1_welpol_general,
+                     mod_1_welpol_unemp,
+                     mod_1_welpol_child,
+                     mod_1_welpol_old,
+                     mod_1_welpol_health),
+                custom.model.names = c("General","Unemployed","Childcare","Old People", "Sick People"),
+                omit.coef = "cntry",
+              file="models.html")
+
+                        
+  
+    
+       
+      summary(lm(welpol_general~welpol_unemp+welpol_child+welpol_old+welpol_health, data=ESS))
+       
+       
+       
+       
+       
+       
 ####Basic Correlations - Punitivness and Welfare Attitudes- Fixed Effect Models####
       mod_1<-lm(punish~wel_index+cntry, data=ESS)
       summary(mod_1)
@@ -122,14 +294,7 @@
       summary(mod_2)
       
       #Add some other correlates of interest - particularly crime victimization +
-      mod_3<-lm(punish~gincdif+gender+age+income_simple+education+activity+
-                  lrscale+  #political variables
-                  trust+    #social variables
-                  trstprl+trstlgl+trstplc+
-                  crime+
-                  wel_lazy+
-                  cntry, data=ESS)
-      
+      mod_3<-lm(punish~gincdif
       summary(mod_3)
       
       

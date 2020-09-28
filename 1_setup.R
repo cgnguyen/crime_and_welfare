@@ -22,7 +22,7 @@
     #          output_dir = "data",
     #          format = 'stata'))
     
-    ESS<-read_dta("./data/ESS.dta")
+    ESS<-read_dta("./data/ESS4/ESS4e04_5.dta")
     
     
     
@@ -140,12 +140,71 @@
        
 ####Add national control variables####
     #GDP capita
-    GDP<-read.csv("./../data/country_data/")
+    GDP<-read.csv("./data/country_data/gdp.csv") 
+    names(GDP)<-c("country_name","GDP") 
+    
+    GDP<-GDP%>%
+      filter(!is.na(GDP))
     
     
     #inequality/gini
+    INEQUALITY<-read.csv("./data/country_data/8020.csv") 
+    names(INEQUALITY)<-c("country_name","INEQ") 
     
-    #unemployment benefit generosity 
+    INEQUALITY<-INEQUALITY%>%
+      filter(!is.na(INEQ))
+    
+    
+    #unemployment benefit generosity / social spending
+    SOCIAL<-read.csv("./data/country_data/socialprot.csv") 
+    names(SOCIAL)<-c("country_name","SOCIAL") 
+    
+    SOCIAL<-SOCIAL%>%
+      filter(!is.na(SOCIAL))
+    
+    #Read in country codes
+    CODES<-read.csv("codes.csv")
+    
+    #Merge into one dataset and cut countries not in main dataset 
+    COUNTRY<-
+      GDP %>%
+      full_join(INEQUALITY)%>%
+      full_join(SOCIAL)%>%
+      full_join(CODES) %>%
+      filter(!is.na(cntry)) %>%
+      filter(!(cntry %in% c("IL","RU","UA"))) %>%
+      mutate(country_name =fct_recode(country_name,
+        "Germany" = "Germany (until 1990 former territory of the FRG)",
+        "United Kingdom of Great Britain and Northern Ireland" = "United Kingdom"))
+               
+               
+    #Add homicide rate
+    HOMICIDE<-read.csv("./data/country_data/homicide.csv")
+    
+    HOMICIDE<-
+      HOMICIDE %>%
+      filter(Sex=="Both sexes")%>%
+      filter(Age.group=="All ages")%>%
+      filter(Year %in% c(2005,2010))%>%
+      rename(country_name = Country, CRIME=Crude.rate) %>%
+      dplyr::select(country_name,Year,CRIME) %>%
+      pivot_wider(values_from= CRIME, names_from= Year) %>%
+      group_by(country_name)%>%
+      summarize(CRIME= mean(`2010`,`2005`)) 
+      
+      
+    
+    COUNTRY<-
+      COUNTRY%>%
+      left_join(HOMICIDE)
+    
+    
+    #Merge with main Dataset
+    
+    ESS_full <-
+      ESS %>%
+      left_join(COUNTRY) %>%
+      filter(!is.na(GDP))
     
     #crime rate/ homicide rates
 
@@ -157,7 +216,7 @@
                         trust+    #social variables
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
-                        cntry, data=ESS)
+                        cntry, data=ESS_full)
     
     summary(mod_1)
        
@@ -172,7 +231,7 @@
                         trust+    #social variables
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
-                        cntry, data=ESS)
+                        cntry, data=ESS_full)
     
     
     mod_1_m<-lm(wel_lazy~punish+
@@ -181,7 +240,7 @@
                         trust+    #social variables
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
-                        cntry, data=ESS)
+                        cntry, data=ESS_full)
     summary(mod_1_m)
        
        
@@ -190,6 +249,200 @@
     summary(mod_mediate)
     
      
+    
+####Random effects lmer models####
+    library(lme4)
+    
+    
+    mod_2<-lmer(welpol_general~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_full)
+    screenreg(mod_2)
+      
+   
+    ####*Cross-level interactions####
+    mod_2_GDP<-lmer(welpol_general~punish*GDP+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_full)
+    
+    screenreg(mod_2_GDP)
+    
+    mod_2_INEQ<-lmer(welpol_general~punish*INEQ+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_full)
+    
+    screenreg(mod_2_INEQ)
+    
+    
+    mod_2_SOCIAL<-lmer(welpol_general~punish*SOCIAL+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_full)
+    
+    screenreg(mod_2_SOCIAL)
+    
+    
+    
+    mod_2_SOCIAL<-lmer(welpol_general~punish*SOCIAL+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_full)
+    
+    screenreg(standardize(mod_2_SOCIAL))
+    
+    mod_2_CRIME<-lmer(welpol_general~punish*CRIME+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_full)
+    
+    
+    screenreg(standardize(mod_2_CRIME))
+    
+    
+####*Visualize Interactions####
+        z=1.68
+        xmin=-0.2
+        xmax=0.05
+      
+    
+         fig_GDP<-marginextract(mod_2_GDP, "punish","GDP")%>%
+              mutate(temp=as_factor(temp)) %>%
+              ggplot()+
+                aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
+                geom_errorbar(width=0, linetype="dashed")+
+                geom_point(size=3 )+
+                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                coord_flip()+
+                theme_bw()+
+                xlab("GDP")+
+                ylim(c(xmin,xmax))+
+                ylab("")+
+                scale_x_discrete(label=c("25%","75%"))+
+                theme(axis.text.x = element_blank())
+    
+           fig_SOCIAL<-marginextract(mod_2_SOCIAL, "punish","SOCIAL")%>%
+              mutate(temp=as_factor(temp)) %>%
+              ggplot()+
+                aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
+                geom_errorbar(width=0, linetype="dashed")+
+                geom_point(size=3 )+
+                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                coord_flip()+
+                theme_bw()+
+                xlab("SOCIAL")+
+                ylim(c(xmin,xmax))+
+                ylab("")+
+                scale_x_discrete(label=c("25%","75%"))+
+                theme(axis.text.x = element_blank())
+    
+           fig_INEQ<-marginextract(mod_2_INEQ, "punish","INEQ")%>%
+              mutate(temp=as_factor(temp)) %>%
+              ggplot()+
+                aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
+                geom_errorbar(width=0, linetype="dashed")+
+                geom_point(size=3 )+
+                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                coord_flip()+
+                theme_bw()+
+                xlab("INEQ")+
+                ylim(c(xmin,xmax))+
+                ylab("")+
+                scale_x_discrete(label=c("25%","75%"))+
+                theme(axis.text.x = element_blank())
+           
+            fig_CRIME<-marginextract(mod_2_CRIME, "punish","CRIME")%>%
+              mutate(temp=as_factor(temp)) %>%
+              ggplot()+
+                aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
+                geom_errorbar(width=0, linetype="dashed")+
+                geom_point(size=3 )+
+                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                coord_flip()+
+                theme_bw()+
+                xlab("CRIME")+
+                ylim(c(xmin,xmax))+
+                ylab("")+
+                scale_x_discrete(label=c("25%","75%"))
+           
+           
+            
+      ####Generate Full Output Figures####
+      library(grid)
+      library(gridExtra)
+      library(broom.mixed)
+             
+      #Get main effect
+      temp_main<-tidy(mod_2)%>%
+        filter(term=="punish")%>%
+        rename(temp=term,coef=estimate,se=std.error)%>%
+        dplyr::select(temp,coef,se) %>%
+        ggplot()+
+                aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
+                geom_errorbar(width=0, linetype="dashed")+
+                geom_point(size=3 )+
+                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                coord_flip()+
+                xlab("Main Effect")+
+                ylim(c(xmin,xmax))+
+                theme_bw()+
+                ylab("")+
+                theme(axis.text.x = element_blank())
+
+
+      
+      
+      ####*Sociodemographics####
+      gA=ggplot_gtable(ggplot_build(temp_main))
+      gB1=ggplot_gtable(ggplot_build(fig_GDP))
+      gB2=ggplot_gtable(ggplot_build(fig_INEQ))
+      gB3=ggplot_gtable(ggplot_build(fig_SOCIAL))
+      gB4=ggplot_gtable(ggplot_build(fig_CRIME))
+
+      
+      
+      
+      maxWidth = grid::unit.pmax(gA$widths, gB1$widths,gB2$widths,gB3$widths,
+                                gB4$widths)
+
+      gA$widths <- as.list(maxWidth)
+      gB1$widths <- as.list(maxWidth)
+      gB2$widths <- as.list(maxWidth)
+      gB3$widths <- as.list(maxWidth)
+      gB4$widths <- as.list(maxWidth)
+
+      
+      
+      
+            
+            
+    
 ####Depreciated- stuff that didn't work#### 
       
 ####New Approach - compare the effect of punitivness on other welfare attitudes by order of deservingness####
@@ -404,6 +657,16 @@
       summary(mod_3_crime)
 
       
+      grid.newpage()
+      
+      
+
+        grid.arrange(arrangeGrob(
+          gA,
+          gB1,
+          gB2,
+          gB3,
+          gB4,nrow=5))
       
             
       

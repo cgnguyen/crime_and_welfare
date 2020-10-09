@@ -11,6 +11,7 @@
   needs(MASS)      #To run ordered logit models
   needs(sjPlot)
   needs(arm)
+  library(psych)
   
 ####Download Individual Level ESS Data####
      # set_email("cgnguyen@gmail.com") #Add your own email here
@@ -48,6 +49,17 @@
       #Welfare makes people lazy 
       ESS$wel_lazy<-(ESS$sblazy-5)*-1
       
+ 
+      temp<-ESS %>%
+        dplyr::select(wel_ben,wel_job,wel_lazy)%>%
+        drop_na()
+      
+      temp_comp<-princomp(temp)
+      summary(temp_comp)
+      
+      principal(temp)
+      
+        
     ####*Specific Welfare Policy preference####
       #Spending/taxation tradeoff
       ESS$welpol_general<-ESS$ditxssp
@@ -122,6 +134,8 @@
     ####*political variables
       ESS$lr<-ESS$lrscale
 
+      
+    ####Ad
       
 #       
 #       ESS$vul_emp<-ESS$lkuemp
@@ -220,38 +234,147 @@
     
     summary(mod_1)
        
-       
-    ####*Check mediation model? crime punitivness to welfare punitivness to welfare attitdes####
-    library(mediation)
-    
-    
-    mod_1_y<-lm(welpol_general~punish+wel_lazy+
-                        gender+age+income_simple+education+activity+
-                        lrscale+  #political variables
-                        trust+    #social variables
-                        trstprl+trstlgl+trstplc+
-                        crime+crime_fear+
-                        cntry, data=ESS_full)
-    
-    
-    mod_1_m<-lm(wel_lazy~punish+
-                        gender+age+income_simple+education+activity+
-                        lrscale+  #political variables
-                        trust+    #social variables
-                        trstprl+trstlgl+trstplc+
-                        crime+crime_fear+
-                        cntry, data=ESS_full)
-    summary(mod_1_m)
-       
-       
-    mod_mediate<-mediate(model.m = mod_1_m, model.y = mod_1_y,
-                         sims=1000, dropobs = T, treat="punish",mediator = "wel_lazy")
-    summary(mod_mediate)
+  
     
      
     
 ####Random effects lmer models####
     library(lme4)
+    #Exclude turkey
+    
+    #Create harmonized data frame of countries to use 
+     cntry_vec<-c("BE","CH","DE","DK","EE","ES","FI","FR","GB","GR","HU","IE","LV","NL","NO","PL","PT","SE","SI")
+     
+     ESS_sub<-ESS_full%>%
+       filter(cntry %in% cntry_vec)
+    
+     
+     mod_1_a<-lmer(welpol_general~punish+
+                        (1|cntry), data=ESS_sub)
+     
+     
+     
+     
+     mod_1_b<-lmer(welpol_general~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        (1|cntry), data=ESS_sub)
+     
+     
+    mod_1_c<-lmer(welpol_general~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        (1|cntry), data=ESS_sub)
+     
+    
+    mod_1_d<-lmer(welpol_general~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_sub)
+    
+    
+    ##Output results##
+    htmlreg(list(standardize(mod_1_a),standardize(mod_1_b),standardize(mod_1_c),standardize(mod_1_d)),
+              custom.coef.names = c("Intercept",
+                                    "Punitivness",
+                                    "Gender-Female","Age",
+                                    "Rich","Poor",
+                                    "2: Lower Secondary","3: Upper Secondary","4: Post Secondary","5-6: Territary Education",
+                                    "Education","Unemployed LFJ","Unemployed Inactive",
+                                    "Sick or Disabled","Retired","Community or Military Service", "Housework", "Other Activity",
+                                    "LR-Self Placement",
+                                    "Generalized Trust",
+                                    "Trust: Parliament","Trust:Legal System","Trust:Police",
+                                    "Crime Victim",
+                                    "Some of the Time","Just occasionally","Never",
+                                    "GDP per capita","Inequality","Social Spending","Crime Rate"),
+              groups= list("Income - Ref: Middle Income"= 5:6, 
+                           "Education - Ref: ISCED 1"=7:10,
+                           "Main Activitiy - Ref: Paid Employment"= 11:18,
+                           "Fear of Crime - Ref: Always" =25:27,
+                           "Country Controls" = 28: 31),
+              file="mod1.html",
+            single.row = T)
+            
+                                    
+                                    
+                                    
+ 
+               
+     
+    ####*Check mediation model? crime punitivness to welfare punitivness to welfare attitdes####
+    library(mediation)
+    
+    
+    mod_1_y<-lmer(welpol_general~punish+wel_lazy+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_sub)
+      
+      
+    mod_1_m<-lmer(wel_lazy~punish+
+                        gender+age+income_simple+education+activity+
+                        lrscale+  #political variables
+                        trust+    #social variables
+                        trstprl+trstlgl+trstplc+
+                        crime+crime_fear+
+                        GDP+INEQ+SOCIAL+CRIME+
+                        (1|cntry), data=ESS_sub)  
+    
+    htmlreg(list(standardize(mod_1_y),standardize(mod_1_m)),
+              custom.coef.names = c("Intercept",
+                                    "Punitivness",
+                                    "Animus Poor",
+                                    "Gender-Female","Age",
+                                    "Rich","Poor",
+                                    "2: Lower Secondary","3: Upper Secondary","4: Post Secondary","5-6: Territary Education",
+                                    "Education","Unemployed LFJ","Unemployed Inactive",
+                                    "Sick or Disabled","Retired","Community or Military Service", "Housework", "Other Activity",
+                                    "LR-Self Placement",
+                                    "Generalized Trust",
+                                    "Trust: Parliament","Trust:Legal System","Trust:Police",
+                                    "Crime Victim",
+                                    "Some of the Time","Just occasionally","Never",
+                                    "GDP per capita","Inequality","Social Spending","Crime Rate"),
+              groups= list("Income - Ref: Middle Income"= 6:7, 
+                           "Education - Ref: ISCED 1"=8:11,
+                           "Main Activitiy - Ref: Paid Employment"= 12:19,
+                           "Fear of Crime - Ref: Always" =26:28,
+                           "Country Controls" = 29: 32),
+              file="mod_mediation.html",
+            single.row = T)
+            
+    
+    
+      
+        mod_1_m_s<-standardize(mod_1_m)
+        mod_1_y_s<-standardize(mod_1_y)
+    
+    
+        mod_mediate<-mediation::mediate(model.m = mod_1_m_s, model.y = mod_1_y_s,
+                         sims=1000, dropobs = T, treat="z.punish",mediator = "z.wel_lazy")
+    
+       
+        summary(mod_mediate)            
+               
+               
+               
+               
+    (mod_mediate)
+    
+    
+    #Summary of countries used
     
     
     mod_2<-lmer(welpol_general~punish+
@@ -261,7 +384,7 @@
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
                         GDP+INEQ+SOCIAL+CRIME+
-                        (1|cntry), data=ESS_full)
+                        (1|cntry), data=ESS_sub)
     screenreg(mod_2)
       
    
@@ -273,7 +396,7 @@
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
                         GDP+INEQ+SOCIAL+CRIME+
-                        (1|cntry), data=ESS_full)
+                        (1|cntry), data=ESS_sub)
     
     screenreg(mod_2_GDP)
     
@@ -284,7 +407,7 @@
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
                         GDP+INEQ+SOCIAL+CRIME+
-                        (1|cntry), data=ESS_full)
+                        (1|cntry), data=ESS_sub)
     
     screenreg(mod_2_INEQ)
     
@@ -296,7 +419,7 @@
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
                         GDP+INEQ+SOCIAL+CRIME+
-                        (1|cntry), data=ESS_full)
+                        (1|cntry), data=ESS_sub)
     
     screenreg(mod_2_SOCIAL)
     
@@ -309,7 +432,7 @@
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
                         GDP+INEQ+SOCIAL+CRIME+
-                        (1|cntry), data=ESS_full)
+                        (1|cntry), data=ESS_sub)
     
     screenreg(standardize(mod_2_SOCIAL))
     
@@ -320,25 +443,60 @@
                         trstprl+trstlgl+trstplc+
                         crime+crime_fear+
                         GDP+INEQ+SOCIAL+CRIME+
-                        (1|cntry), data=ESS_full)
+                        (1|cntry), data=ESS_sub)
+    
     
     
     screenreg(standardize(mod_2_CRIME))
     
     
+    htmlreg(list(standardize(mod_2_GDP),standardize(mod_2_INEQ), standardize(mod_2_SOCIAL), standardize(mod_2_CRIME)),
+                custom.coef.names = c("Intercept",
+                                    "Punitivness",
+                                    "Gender-Female","Age",
+                                    "Rich","Poor",
+                                    "2: Lower Secondary","3: Upper Secondary","4: Post Secondary","5-6: Territary Education",
+                                    "Education","Unemployed LFJ","Unemployed Inactive",
+                                    "Sick or Disabled","Retired","Community or Military Service", "Housework", "Other Activity",
+                                    "LR-Self Placement",
+                                    "Generalized Trust",
+                                    "Trust: Parliament","Trust:Legal System","Trust:Police",
+                                    "Crime Victim",
+                                    "Some of the Time","Just occasionally","Never",
+                                    "GDP per capita","Inequality","Social Spending","Crime Rate",
+                                    "GDP per capita ","Inequality ","Social Spending ","Crime Rate "),
+              groups= list("Income - Ref: Middle Income"= 5:6, 
+                           "Education - Ref: ISCED 1"=7:10,
+                           "Main Activitiy - Ref: Paid Employment"= 11:18,
+                           "Fear of Crime - Ref: Always" =25:27,
+                           "Country Controls" = 28: 31,
+                           "Cross-Level Interactions: Punitivness x " = 32:35),
+              file="mod2.html",
+            single.row = T)
+              
+              
+              
+              
+      
+      
+    
+    
+    
+    
+    
 ####*Visualize Interactions####
         z=1.68
-        xmin=-0.2
+        xmin=-0.35
         xmax=0.05
       
     
-         fig_GDP<-marginextract(mod_2_GDP, "punish","GDP")%>%
+         fig_GDP<-marginextract(standardize(mod_2_GDP), "z.punish","z.GDP")%>%
               mutate(temp=as_factor(temp)) %>%
               ggplot()+
                 aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
                 geom_errorbar(width=0, linetype="dashed")+
                 geom_point(size=3 )+
-                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                geom_hline(yintercept = -0.208 ,linetype="dashed")+
                 coord_flip()+
                 theme_bw()+
                 xlab("GDP")+
@@ -347,13 +505,13 @@
                 scale_x_discrete(label=c("25%","75%"))+
                 theme(axis.text.x = element_blank())
     
-           fig_SOCIAL<-marginextract(mod_2_SOCIAL, "punish","SOCIAL")%>%
+           fig_SOCIAL<-marginextract(standardize(mod_2_SOCIAL), "z.punish","z.SOCIAL")%>%
               mutate(temp=as_factor(temp)) %>%
               ggplot()+
                 aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
                 geom_errorbar(width=0, linetype="dashed")+
                 geom_point(size=3 )+
-                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                geom_hline(yintercept = -0.208,linetype="dashed")+
                 coord_flip()+
                 theme_bw()+
                 xlab("SOCIAL")+
@@ -362,13 +520,13 @@
                 scale_x_discrete(label=c("25%","75%"))+
                 theme(axis.text.x = element_blank())
     
-           fig_INEQ<-marginextract(mod_2_INEQ, "punish","INEQ")%>%
+           fig_INEQ<-marginextract(standardize(mod_2_INEQ), "z.punish","z.INEQ")%>%
               mutate(temp=as_factor(temp)) %>%
               ggplot()+
                 aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
                 geom_errorbar(width=0, linetype="dashed")+
                 geom_point(size=3 )+
-                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                geom_hline(yintercept = -0.208,linetype="dashed")+
                 coord_flip()+
                 theme_bw()+
                 xlab("INEQ")+
@@ -377,13 +535,13 @@
                 scale_x_discrete(label=c("25%","75%"))+
                 theme(axis.text.x = element_blank())
            
-            fig_CRIME<-marginextract(mod_2_CRIME, "punish","CRIME")%>%
+            fig_CRIME<-marginextract(mod_2_CRIME), "z.punish","z.CRIME")%>%
               mutate(temp=as_factor(temp)) %>%
               ggplot()+
                 aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
                 geom_errorbar(width=0, linetype="dashed")+
                 geom_point(size=3 )+
-                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                geom_hline(yintercept = -0.208,linetype="dashed")+
                 coord_flip()+
                 theme_bw()+
                 xlab("CRIME")+
@@ -393,21 +551,24 @@
            
            
             
+            
+            marginextract(standardize(mod_2_SOCIAL), "z.punish","z.SOCIAL")
+            
       ####Generate Full Output Figures####
       library(grid)
       library(gridExtra)
       library(broom.mixed)
              
       #Get main effect
-      temp_main<-tidy(mod_2)%>%
-        filter(term=="punish")%>%
+      temp_main<-tidy(standardize(mod_2))%>%
+        filter(term=="z.punish")%>%
         rename(temp=term,coef=estimate,se=std.error)%>%
         dplyr::select(temp,coef,se) %>%
         ggplot()+
                 aes(x=temp, y=coef,ymin=coef-(z*se),ymax=coef+(z*se))+
                 geom_errorbar(width=0, linetype="dashed")+
                 geom_point(size=3 )+
-                geom_hline(yintercept = -0.0953,linetype="dashed")+
+                geom_hline(yintercept = -0.208 ,linetype="dashed")+
                 coord_flip()+
                 xlab("Main Effect")+
                 ylim(c(xmin,xmax))+
@@ -438,7 +599,12 @@
       gB4$widths <- as.list(maxWidth)
 
       
-      
+         grid.arrange(arrangeGrob(
+          gA,
+          gB1,
+          gB2,
+          gB3,
+          gB4,nrow=5))
       
             
             
